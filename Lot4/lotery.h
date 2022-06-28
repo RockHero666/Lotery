@@ -103,6 +103,18 @@ private:
     void save_data();
     void load_data();
 
+
+    int w2 = 10;
+    int w3 = 100;
+    int w4 = 1000;
+    int w5 = 10000;
+    int game_price = 25;
+    int ball_price_1 =15;
+    int ball_price_2 =25;
+    int ball_price_3 =50;
+    int ball_price_4 =100;
+    int ball_price_5 =250;
+    int ball_price_6 =500;
 };
 
 

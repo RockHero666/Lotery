@@ -113,17 +113,19 @@ Lotery::Lotery(QWidget *parent) :
     m_fon2->setVolume(40);
 
 
+    // таймер для фоновой музыки
     t_for_player->start(2000);
     connect(t_for_player, &QTimer::timeout,  this, &Lotery::playS);
 
     init_media(); //запускаем проигрыватели
-    make_cfg();
-    get_cfg();
-    readme();
-    load_money();
-    load_data();
+    make_cfg(); // делаем конфиг
+    get_cfg();  // загрузка конфига
+    readme();   // создание ридми
+    load_money(); // подгрузить дата файлы денег
+    load_data();// подгрузить дата файлы количества игр
 
-    com = new Com();
+    com = new Com(); // инициализация порта
+
     // com_thread=new QThread(this);
 
     // com->moveToThread(com_thread);
@@ -213,10 +215,10 @@ void Lotery::luck_btn()
 void Lotery::start_game()
 {
     //set_cash(50); // отладка
-    if(vector_check.size() == 6 && money >= 25*X_scale)  // проверка на нажатие 6 кнопок
+    if(vector_check.size() == 6 && money >= game_price*X_scale)  // проверка на нажатие 6 кнопок
     {
         N_of_game++;
-        set_cash(-25*X_scale);
+        set_cash(-game_price*X_scale);
 
         m_start->play();
         is_start =1;
@@ -265,7 +267,7 @@ void Lotery::game()
 
         int temp_f_naeb = 0;
 
-        if(N_of_game%10000==0)
+        if(N_of_game%w5==0)
         {
             vect.push_back(vector_check[0]);
             vect.push_back(vector_check[4]);
@@ -274,8 +276,9 @@ void Lotery::game()
             vect.push_back(vector_check[3]);
             temp_f_naeb+=5;
             naeb=5;
+            change=1;
         }
-        else if(N_of_game%1000==0)
+        else if(N_of_game%w4==0)
         {
             vect.push_back(vector_check[0]);
             vect.push_back(vector_check[4]);
@@ -283,21 +286,24 @@ void Lotery::game()
             vect.push_back(vector_check[5]);
             temp_f_naeb+=4;
             naeb=4;
+            change=1;
         }
-        else if(N_of_game%100==0)
+        else if(N_of_game%w3==0)
         {
             vect.push_back(vector_check[0]);
             vect.push_back(vector_check[4]);
             vect.push_back(vector_check[2]);
             temp_f_naeb+=3;
             naeb=3;
+            change=1;
         }
-        else if(N_of_game%10==0)
+        else if(N_of_game%w2==0)
         {
             vect.push_back(vector_check[1]);
             vect.push_back(vector_check[2]);
             temp_f_naeb+=2;
             naeb=2;
+            change=1;
         }
 
 
@@ -634,32 +640,32 @@ void Lotery::winGame()
     {
     case 1:
     {
-        set_cash(15*X_scale);
+        set_cash(ball_price_1*X_scale);
         break;
     }
     case 2:
     {
-        set_cash(25*X_scale);
+        set_cash(ball_price_2*X_scale);
         break;
     }
     case 3:
     {
-        set_cash(50*X_scale);
+        set_cash(ball_price_3*X_scale);
         break;
     }
     case 4:
     {
-        set_cash(100*X_scale);
+        set_cash(ball_price_4*X_scale);
         break;
     }
     case 5:
     {
-        set_cash(200*X_scale);
+        set_cash(ball_price_5*X_scale);
         break;
     }
     case 6:
     {
-        set_cash(500*X_scale);
+        set_cash(ball_price_6*X_scale);
         break;
     }
     default:
@@ -706,6 +712,18 @@ void Lotery::make_cfg()
         settings.beginGroup("Settings");
         settings.setValue("predel","2");
         settings.setValue("change","20");
+       settings.setValue("w2","10");
+       settings.setValue("w3","100");
+       settings.setValue("w4","1000");
+       settings.setValue("w5","10000");
+        settings.setValue("game_price","25");
+        settings.setValue("ball_price_1","15");
+          settings.setValue("ball_price_2","25");
+            settings.setValue("ball_price_3","50");
+              settings.setValue("ball_price_4","100");
+                settings.setValue("ball_price_5","250");
+                  settings.setValue("ball_price_6","500");
+
         settings.endGroup();
     }
 }
@@ -720,6 +738,19 @@ void Lotery::get_cfg()
 
     naeb=settings.value("predel").toFloat();
     change =  settings.value("change").toInt();
+    w2 =    settings.value("w2").toInt();
+    w3 =    settings.value("w3").toInt();
+    w4 =    settings.value("w4").toInt();
+    w5 =    settings.value("w5").toInt();
+    game_price =settings.value("game_price").toInt();
+    ball_price_1 =    settings.value("ball_price_1").toInt();
+     ball_price_2 =    settings.value("ball_price_2").toInt();
+     ball_price_3 =    settings.value("ball_price_3").toInt();
+     ball_price_4 =    settings.value("ball_price_4").toInt();
+     ball_price_5 =    settings.value("ball_price_5").toInt();
+     ball_price_6 =    settings.value("ball_price_6").toInt();
+
+
 
     settings.endGroup();
 }
@@ -812,7 +843,7 @@ void Lotery::playS()
 
 void Lotery::set_cash(int m)
 {
-    if(m==0)
+    if(m==0) // для конца игры после выдачи чека
     {
         money = 0;
     }
@@ -860,7 +891,7 @@ void Lotery::set_cash(int m)
     ui->dep_1->setPixmap(QPixmap(path_dep_1));
 
 
-    int trys1 = money/(25*X_scale);
+    int trys1 = money/(game_price*X_scale);
     QString trys_str = QString::number(trys1);
     while(!(trys_str.size()==3))
     {
@@ -1134,7 +1165,7 @@ void Lotery::on_X_up_btn_clicked()
         path +=QString::number(X_scale) + ".png" ;
         ui->X_table_number->setPixmap(path);
 
-        int trys1 = money/(25*X_scale);
+        int trys1 = money/(game_price*X_scale);
         QString trys_str = QString::number(trys1);
         while(!(trys_str.size()==3))
         {
@@ -1174,7 +1205,7 @@ void Lotery::on_X_down_btn_clicked()
         path +=QString::number(X_scale) + ".png" ;
         ui->X_table_number->setPixmap(path);
 
-        int trys1 = money/(25*X_scale);
+        int trys1 = money/(game_price*X_scale);
         QString trys_str = QString::number(trys1);
         while(!(trys_str.size()==3))
         {

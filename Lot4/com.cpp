@@ -8,10 +8,11 @@ Com::Com(QObject *parent)
     : QObject(parent)
 
 {
+    // таймер для обработки сигналов
     timer=new QTimer(this);
     connect(timer,&QTimer::timeout,this,&Com::serialReciever);
 
-
+//  Инициализация порта
     pSerial = new QSerialPort(this);
     pSerial->setPortName("com3");
     pSerial->setBaudRate(QSerialPort::Baud9600);
@@ -97,7 +98,7 @@ void Com::serialReciever()
   //forever
   {
 
-
+        // для отладки
       if(once)
       {
          emit cash(500);
