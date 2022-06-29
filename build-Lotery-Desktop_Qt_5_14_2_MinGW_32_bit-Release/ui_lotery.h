@@ -120,6 +120,8 @@ public:
     QLabel *player_ball_3;
     QLabel *player_ball_4;
     QLabel *player_ball_6;
+    QLabel *movie_anim;
+    QLabel *win_logo;
 
     void setupUi(QMainWindow *Lotery)
     {
@@ -874,10 +876,7 @@ public:
 "   background-color: transparent;\n"
 "}\n"
 ""));
-        QIcon icon37;
-        icon37.addFile(QString::fromUtf8("resurce/win_menu.png"), QSize(), QIcon::Normal, QIcon::Off);
-        win_btn_logo->setIcon(icon37);
-        win_btn_logo->setIconSize(QSize(1280, 1024));
+        win_btn_logo->setIconSize(QSize(0, 0));
         idiot_lock = new QPushButton(centralWidget);
         idiot_lock->setObjectName(QString::fromUtf8("idiot_lock"));
         idiot_lock->setGeometry(QRect(1111, 1111, 1300, 890));
@@ -893,9 +892,9 @@ public:
 "   background-color: transparent;\n"
 "}\n"
 ""));
-        QIcon icon38;
-        icon38.addFile(QString::fromUtf8("resurce/btn/x10_btn.png"), QSize(), QIcon::Normal, QIcon::Off);
-        speed->setIcon(icon38);
+        QIcon icon37;
+        icon37.addFile(QString::fromUtf8("resurce/btn/x10_btn.png"), QSize(), QIcon::Normal, QIcon::Off);
+        speed->setIcon(icon37);
         speed->setIconSize(QSize(150, 150));
         jack = new QLabel(centralWidget);
         jack->setObjectName(QString::fromUtf8("jack"));
@@ -911,7 +910,7 @@ public:
         exit->setScaledContents(true);
         horizontalLayoutWidget = new QWidget(centralWidget);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(100, 30, 161, 41));
+        horizontalLayoutWidget->setGeometry(QRect(100, 30, 289, 41));
         horizontalLayout_7 = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout_7->setSpacing(1);
         horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
@@ -967,7 +966,7 @@ public:
         trys_logo->setScaledContents(true);
         horizontalLayoutWidget_2 = new QWidget(centralWidget);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(190, 90, 71, 41));
+        horizontalLayoutWidget_2->setGeometry(QRect(190, 90, 155, 41));
         horizontalLayout_8 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_8->setSpacing(6);
         horizontalLayout_8->setContentsMargins(11, 11, 11, 11);
@@ -1069,6 +1068,14 @@ public:
         player_ball_6->setObjectName(QString::fromUtf8("player_ball_6"));
         player_ball_6->setGeometry(QRect(11111, 103, 75, 75));
         player_ball_6->setScaledContents(true);
+        movie_anim = new QLabel(centralWidget);
+        movie_anim->setObjectName(QString::fromUtf8("movie_anim"));
+        movie_anim->setGeometry(QRect(111111, 11111, 1280, 1024));
+        movie_anim->setScaledContents(true);
+        win_logo = new QLabel(centralWidget);
+        win_logo->setObjectName(QString::fromUtf8("win_logo"));
+        win_logo->setGeometry(QRect(111111, 111111, 1280, 1024));
+        win_logo->setScaledContents(true);
         Lotery->setCentralWidget(centralWidget);
         trys_logo->raise();
         money->raise();
@@ -1103,13 +1110,15 @@ public:
         table_score->raise();
         player_choes_table->raise();
         idiot_lock->raise();
-        win_btn_logo->raise();
         player_ball_2->raise();
         player_ball_1->raise();
         player_ball_5->raise();
         player_ball_3->raise();
         player_ball_4->raise();
         player_ball_6->raise();
+        win_logo->raise();
+        movie_anim->raise();
+        win_btn_logo->raise();
 
         retranslateUi(Lotery);
 
@@ -1200,6 +1209,8 @@ public:
         player_ball_3->setText(QCoreApplication::translate("Lotery", "TextLabel", nullptr));
         player_ball_4->setText(QCoreApplication::translate("Lotery", "TextLabel", nullptr));
         player_ball_6->setText(QCoreApplication::translate("Lotery", "TextLabel", nullptr));
+        movie_anim->setText(QCoreApplication::translate("Lotery", "TextLabel", nullptr));
+        win_logo->setText(QCoreApplication::translate("Lotery", "TextLabel", nullptr));
     } // retranslateUi
 
 };

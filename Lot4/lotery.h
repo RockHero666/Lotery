@@ -18,6 +18,7 @@
 #include <QtPrintSupport/QPrinter>
 #include <QPainter>
 #include <QDataStream>
+#include <QMovie>
 
 class Com;
 
@@ -51,21 +52,21 @@ protected:
 private slots:
 
 
-    void on_speed_clicked();
+    void on_speed_clicked(); //слот кнопки ускорения
 
-    void on_exit_btn_clicked();
+    void on_exit_btn_clicked(); //слот кнопки выхода
 
-    void on_X_up_btn_clicked();
+    void on_X_up_btn_clicked(); //слот кнопки апскейла
 
-    void on_X_down_btn_clicked();
+    void on_X_down_btn_clicked(); //слот кнопки даунскейл
 
 private:
 
     Com* com;
     std::vector<int> vect; // вектор победных чисел
     int time = 0; // итератор для задержки
-    QTimer *timer;
-    QTimer *t_for_player;
+    QTimer *timer;// таймер логики для отсчета времени игры
+    QTimer *t_for_player; // таймер для фоновой музыки
 
     Widget *widg;// виджет сцены и итемов
     std::vector<QPushButton*> vector_btn; // вектор всех кнопок
@@ -75,11 +76,10 @@ private:
     int naeb=6;  // значение допустимого выигрыша
     int change = 50;
    // QThread * com_thread;
-    QTimer *timer_com;
-    long long int money=0;
-    long long int money_in_safe =0;
-    int X_scale =1;
-    int N_of_game = 0;
+    long long int money=0; // деньги текущей игры
+    long long int money_in_safe =0; // все деньги сейфа
+    int X_scale =1; // сколятор
+    int N_of_game = 0; // какая по счету игра
 
     QMediaPlayer * m_next;
     QMediaPlayer * m_fon;
@@ -98,10 +98,10 @@ private:
     void make_cfg(); // создает конфиг
     void get_cfg(); // подгружает конфиг
     void readme(); // создает ридми
-    void init_media();
-    void load_money();
-    void save_data();
-    void load_data();
+    void init_media(); // подгрузка музыки
+    void load_money(); // загрузка в память сколько в сейфе денег
+    void save_data(); // сохранение прочих данных
+    void load_data(); // загрузка прочих даных
 
 
     int w2 = 10;
@@ -115,6 +115,9 @@ private:
     int ball_price_4 =100;
     int ball_price_5 =250;
     int ball_price_6 =500;
+
+    QMovie * animation;
+
 };
 
 

@@ -1794,14 +1794,10 @@ border-image: url(&quot;resurce/fon.jpg&quot;) 0 0 0 0 stretch stretch
     <property name="text">
      <string/>
     </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>resurce/win_menu.png</normaloff>resurce/win_menu.png</iconset>
-    </property>
     <property name="iconSize">
      <size>
-      <width>1280</width>
-      <height>1024</height>
+      <width>0</width>
+      <height>0</height>
      </size>
     </property>
    </widget>
@@ -1912,7 +1908,7 @@ border-image: url(&quot;resurce/fon.jpg&quot;) 0 0 0 0 stretch stretch
      <rect>
       <x>100</x>
       <y>30</y>
-      <width>161</width>
+      <width>289</width>
       <height>41</height>
      </rect>
     </property>
@@ -2035,7 +2031,7 @@ border-image: url(&quot;resurce/fon.jpg&quot;) 0 0 0 0 stretch stretch
      <rect>
       <x>190</x>
       <y>90</y>
-      <width>71</width>
+      <width>155</width>
       <height>41</height>
      </rect>
     </property>
@@ -2356,6 +2352,38 @@ border-image: url(&quot;resurce/fon.jpg&quot;) 0 0 0 0 stretch stretch
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="movie_anim">
+    <property name="geometry">
+     <rect>
+      <x>111111</x>
+      <y>11111</y>
+      <width>1280</width>
+      <height>1024</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="win_logo">
+    <property name="geometry">
+     <rect>
+      <x>111111</x>
+      <y>111111</y>
+      <width>1280</width>
+      <height>1024</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
    <zorder>trys_logo</zorder>
    <zorder>money</zorder>
    <zorder>exit</zorder>
@@ -2389,14 +2417,15 @@ border-image: url(&quot;resurce/fon.jpg&quot;) 0 0 0 0 stretch stretch
    <zorder>table_score</zorder>
    <zorder>player_choes_table</zorder>
    <zorder>idiot_lock</zorder>
-   <zorder>win_btn_logo</zorder>
-   <zorder>verticalLayoutWidget_2</zorder>
    <zorder>player_ball_2</zorder>
    <zorder>player_ball_1</zorder>
    <zorder>player_ball_5</zorder>
    <zorder>player_ball_3</zorder>
    <zorder>player_ball_4</zorder>
    <zorder>player_ball_6</zorder>
+   <zorder>win_logo</zorder>
+   <zorder>movie_anim</zorder>
+   <zorder>win_btn_logo</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

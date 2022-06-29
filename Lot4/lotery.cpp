@@ -18,8 +18,8 @@ Lotery::Lotery(QWidget *parent) :
     t_for_player = new QTimer();
     timer = new QTimer(); // инициализация таймера
     widg = new Widget(); // создаем сцену и итемы сцены (по факту класс- менеджер по сцене-объектам)
-
-
+    animation = new QMovie("./resurce/anim.gif");
+    ui->movie_anim->setMovie(animation);
 
 
 
@@ -50,6 +50,7 @@ Lotery::Lotery(QWidget *parent) :
     ui->trys->setPixmap(QPixmap("./resurce/trys.png"));
     ui->trys_logo->setPixmap(QPixmap("./resurce/money.png"));
 
+    //ui->w
 
 
     ui->try_1->setPixmap(QPixmap("./resurce/number/gold/0.png"));
@@ -568,6 +569,9 @@ void Lotery::game()
 void Lotery::close_win_menu()
 {
     ui->win_btn_logo->setGeometry(11111,11111,1300,750); // убрать винлого куда подальше
+    ui->movie_anim->setGeometry(11111,11111,1280,1024);
+    ui->win_logo->setGeometry(11111,11111,1280,1024);
+    animation->stop();
 }
 
 void Lotery::restart()
@@ -621,7 +625,11 @@ void Lotery::winGame()
     }
 
     QString path = "./resurce/win/win_btn" + QString::number(howWin) +"_"+QString::number(QRandomGenerator::global()->generate()%3+1) +".png" ;;
-    ui->win_btn_logo->setIcon(QIcon(path)); // выставляем картинку победы равную выигрышу
+    ui->movie_anim->setGeometry(0,0,1280,1024);
+    animation->start();
+     ui->win_logo->setPixmap(path);
+    ui->win_logo->setGeometry(0,0,1280,1024);
+   // ui->win_btn_logo->setIcon(QIcon(path)); // выставляем картинку победы равную выигрышу
     ui->idiot_lock->setGeometry(11111,11111,1300,750);  // убераем защиту от дурака с кнопок
     ui->table_score->setGeometry(11111,11111,1300,750);
     ui->win_btn_logo->setGeometry(0,0,1280,1024);        // ставим вин лого
