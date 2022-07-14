@@ -910,7 +910,7 @@ public:
         exit->setScaledContents(true);
         horizontalLayoutWidget = new QWidget(centralWidget);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(100, 30, 289, 41));
+        horizontalLayoutWidget->setGeometry(QRect(100, 30, 161, 41));
         horizontalLayout_7 = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout_7->setSpacing(1);
         horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
@@ -966,7 +966,7 @@ public:
         trys_logo->setScaledContents(true);
         horizontalLayoutWidget_2 = new QWidget(centralWidget);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(190, 90, 155, 41));
+        horizontalLayoutWidget_2->setGeometry(QRect(190, 90, 71, 41));
         horizontalLayout_8 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_8->setSpacing(6);
         horizontalLayout_8->setContentsMargins(11, 11, 11, 11);
@@ -1071,7 +1071,7 @@ public:
         movie_anim = new QLabel(centralWidget);
         movie_anim->setObjectName(QString::fromUtf8("movie_anim"));
         movie_anim->setGeometry(QRect(111111, 11111, 1280, 1024));
-        movie_anim->setScaledContents(true);
+        movie_anim->setScaledContents(false);
         win_logo = new QLabel(centralWidget);
         win_logo->setObjectName(QString::fromUtf8("win_logo"));
         win_logo->setGeometry(QRect(111111, 111111, 1280, 1024));

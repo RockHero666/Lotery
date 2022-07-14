@@ -247,6 +247,7 @@ Makefile: F:/in\ work/Lot4/Lotery.pro ../../Programs/QT5/5.14.2/mingw73_32/mkspe
 		../../Programs/QT5/5.14.2/mingw73_32/mkspecs/features/qt_config.prf \
 		../../Programs/QT5/5.14.2/mingw73_32/mkspecs/win32-g++/qmake.conf \
 		../../Programs/QT5/5.14.2/mingw73_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../Programs/QT5/5.14.2/mingw73_32/mkspecs/features/exclusive_builds.prf \
 		../../Programs/QT5/5.14.2/mingw73_32/mkspecs/features/toolchain.prf \
 		../../Programs/QT5/5.14.2/mingw73_32/mkspecs/features/default_pre.prf \
@@ -279,7 +280,6 @@ Makefile: F:/in\ work/Lot4/Lotery.pro ../../Programs/QT5/5.14.2/mingw73_32/mkspe
 		../../Programs/QT5/5.14.2/mingw73_32/lib/Qt5Network.prl \
 		../../Programs/QT5/5.14.2/mingw73_32/lib/Qt5Core.prl \
 		../../Programs/QT5/5.14.2/mingw73_32/lib/qtmain.prl \
-		.qmake.stash \
 		../../Programs/QT5/5.14.2/mingw73_32/mkspecs/features/build_pass.prf \
 		F:/in\ work/Lot4/res.qrc
 	$(QMAKE) -o Makefile "F:\in work\Lot4\Lotery.pro" -spec win32-g++ "CONFIG+=qtquickcompiler"
@@ -460,6 +460,7 @@ Makefile: F:/in\ work/Lot4/Lotery.pro ../../Programs/QT5/5.14.2/mingw73_32/mkspe
 ../../Programs/QT5/5.14.2/mingw73_32/mkspecs/features/qt_config.prf:
 ../../Programs/QT5/5.14.2/mingw73_32/mkspecs/win32-g++/qmake.conf:
 ../../Programs/QT5/5.14.2/mingw73_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../Programs/QT5/5.14.2/mingw73_32/mkspecs/features/exclusive_builds.prf:
 ../../Programs/QT5/5.14.2/mingw73_32/mkspecs/features/toolchain.prf:
 ../../Programs/QT5/5.14.2/mingw73_32/mkspecs/features/default_pre.prf:
@@ -492,7 +493,6 @@ F:/in\ work/Lot4/Lotery.pro:
 ../../Programs/QT5/5.14.2/mingw73_32/lib/Qt5Network.prl:
 ../../Programs/QT5/5.14.2/mingw73_32/lib/Qt5Core.prl:
 ../../Programs/QT5/5.14.2/mingw73_32/lib/qtmain.prl:
-.qmake.stash:
 ../../Programs/QT5/5.14.2/mingw73_32/mkspecs/features/build_pass.prf:
 F:/in\ work/Lot4/res.qrc:
 qmake: FORCE

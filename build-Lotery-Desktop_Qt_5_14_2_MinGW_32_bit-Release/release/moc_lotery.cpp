@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Lotery_t {
-    QByteArrayData data[16];
-    char stringdata0[181];
+    QByteArrayData data[17];
+    char stringdata0[191];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -44,15 +44,16 @@ QT_MOC_LITERAL(8, 63, 8), // "set_cash"
 QT_MOC_LITERAL(9, 72, 1), // "m"
 QT_MOC_LITERAL(10, 74, 9), // "money_add"
 QT_MOC_LITERAL(11, 84, 17), // "money_add_in_safe"
-QT_MOC_LITERAL(12, 102, 16), // "on_speed_clicked"
-QT_MOC_LITERAL(13, 119, 19), // "on_exit_btn_clicked"
-QT_MOC_LITERAL(14, 139, 19), // "on_X_up_btn_clicked"
-QT_MOC_LITERAL(15, 159, 21) // "on_X_down_btn_clicked"
+QT_MOC_LITERAL(12, 102, 9), // "anim_slot"
+QT_MOC_LITERAL(13, 112, 16), // "on_speed_clicked"
+QT_MOC_LITERAL(14, 129, 19), // "on_exit_btn_clicked"
+QT_MOC_LITERAL(15, 149, 19), // "on_X_up_btn_clicked"
+QT_MOC_LITERAL(16, 169, 21) // "on_X_down_btn_clicked"
 
     },
     "Lotery\0is_6_btn\0\0luck_btn\0start_game\0"
     "game\0close_win_menu\0playS\0set_cash\0m\0"
-    "money_add\0money_add_in_safe\0"
+    "money_add\0money_add_in_safe\0anim_slot\0"
     "on_speed_clicked\0on_exit_btn_clicked\0"
     "on_X_up_btn_clicked\0on_X_down_btn_clicked"
 };
@@ -64,7 +65,7 @@ static const uint qt_meta_data_Lotery[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -72,19 +73,20 @@ static const uint qt_meta_data_Lotery[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   79,    2, 0x0a /* Public */,
-       3,    0,   80,    2, 0x0a /* Public */,
-       4,    0,   81,    2, 0x0a /* Public */,
-       5,    0,   82,    2, 0x0a /* Public */,
-       6,    0,   83,    2, 0x0a /* Public */,
-       7,    0,   84,    2, 0x0a /* Public */,
-       8,    1,   85,    2, 0x0a /* Public */,
-      10,    0,   88,    2, 0x0a /* Public */,
-      11,    1,   89,    2, 0x0a /* Public */,
-      12,    0,   92,    2, 0x08 /* Private */,
-      13,    0,   93,    2, 0x08 /* Private */,
-      14,    0,   94,    2, 0x08 /* Private */,
-      15,    0,   95,    2, 0x08 /* Private */,
+       1,    0,   84,    2, 0x0a /* Public */,
+       3,    0,   85,    2, 0x0a /* Public */,
+       4,    0,   86,    2, 0x0a /* Public */,
+       5,    0,   87,    2, 0x0a /* Public */,
+       6,    0,   88,    2, 0x0a /* Public */,
+       7,    0,   89,    2, 0x0a /* Public */,
+       8,    1,   90,    2, 0x0a /* Public */,
+      10,    0,   93,    2, 0x0a /* Public */,
+      11,    1,   94,    2, 0x0a /* Public */,
+      12,    0,   97,    2, 0x0a /* Public */,
+      13,    0,   98,    2, 0x08 /* Private */,
+      14,    0,   99,    2, 0x08 /* Private */,
+      15,    0,  100,    2, 0x08 /* Private */,
+      16,    0,  101,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -96,6 +98,7 @@ static const uint qt_meta_data_Lotery[] = {
     QMetaType::Void, QMetaType::Int,    9,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    9,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -119,10 +122,11 @@ void Lotery::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 6: _t->set_cash((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 7: _t->money_add(); break;
         case 8: _t->money_add_in_safe((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 9: _t->on_speed_clicked(); break;
-        case 10: _t->on_exit_btn_clicked(); break;
-        case 11: _t->on_X_up_btn_clicked(); break;
-        case 12: _t->on_X_down_btn_clicked(); break;
+        case 9: _t->anim_slot(); break;
+        case 10: _t->on_speed_clicked(); break;
+        case 11: _t->on_exit_btn_clicked(); break;
+        case 12: _t->on_X_up_btn_clicked(); break;
+        case 13: _t->on_X_down_btn_clicked(); break;
         default: ;
         }
     }
@@ -157,13 +161,13 @@ int Lotery::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 14)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 13;
+        _id -= 14;
     }
     return _id;
 }

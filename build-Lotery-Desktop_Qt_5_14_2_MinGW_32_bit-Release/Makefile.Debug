@@ -501,6 +501,17 @@ debug/moc_lotery.cpp: F:/in\ work/Lot4/lotery.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qpagelayout.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qpagesize.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/QDataStream \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/QMovie \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qmovie.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qimagereader.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qimageiohandler.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qplugin.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qpointer.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qjsonobject.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qfactoryinterface.h \
 		debug/moc_predefs.h \
 		../../Programs/QT5/5.14.2/mingw73_32/bin/moc.exe
 	D:\Programs\QT5\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include D:/Lot4/build-Lotery-Desktop_Qt_5_14_2_MinGW_32_bit-Release/debug/moc_predefs.h -ID:/Programs/QT5/5.14.2/mingw73_32/mkspecs/win32-g++ -I"F:/in work/Lot4" -ID:/Programs/QT5/5.14.2/mingw73_32/include -ID:/Programs/QT5/5.14.2/mingw73_32/include/QtMultimedia -ID:/Programs/QT5/5.14.2/mingw73_32/include/QtPrintSupport -ID:/Programs/QT5/5.14.2/mingw73_32/include/QtWidgets -ID:/Programs/QT5/5.14.2/mingw73_32/include/QtGui -ID:/Programs/QT5/5.14.2/mingw73_32/include/QtANGLE -ID:/Programs/QT5/5.14.2/mingw73_32/include/QtSerialPort -ID:/Programs/QT5/5.14.2/mingw73_32/include/QtNetwork -ID:/Programs/QT5/5.14.2/mingw73_32/include/QtCore -I. -ID:/Programs/QT5/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Programs/QT5/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Programs/QT5/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Programs/QT5/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Programs/QT5/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Programs/QT5/Tools/mingw730_32/i686-w64-mingw32/include "F:\in work\Lot4\lotery.h" -o debug\moc_lotery.cpp
@@ -1430,10 +1441,19 @@ debug/main.o: F:/in\ work/Lot4/main.cpp F:/in\ work/Lot4/lotery.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qpagelayout.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qpagesize.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/QDataStream \
-		../../Programs/QT5/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../Programs/QT5/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/QMovie \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qmovie.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qimagereader.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qimageiohandler.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qplugin.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qpointer.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qjsonobject.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qfactoryinterface.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtWidgets/QApplication \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qinputmethod.h
@@ -1604,13 +1624,22 @@ debug/lotery.o: F:/in\ work/Lot4/lotery.cpp F:/in\ work/Lot4/lotery.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qpagelayout.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qpagesize.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/QDataStream \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/QMovie \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qmovie.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qimagereader.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qimageiohandler.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qplugin.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qpointer.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qjsonobject.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
+		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qfactoryinterface.h \
 		ui_lotery.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/QVariant \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/QIcon \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtWidgets/QApplication \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../Programs/QT5/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
 		../../Programs/QT5/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
