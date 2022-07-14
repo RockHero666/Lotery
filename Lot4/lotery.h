@@ -46,6 +46,7 @@ public slots:
     void set_cash(int m); // денежный метод
     void money_add();
     void money_add_in_safe(int m);
+    void anim_slot();
 
 protected:
     virtual void keyPressEvent(QKeyEvent *event) override;
@@ -67,6 +68,8 @@ private:
     int time = 0; // итератор для задержки
     QTimer *timer;// таймер логики для отсчета времени игры
     QTimer *t_for_player; // таймер для фоновой музыки
+    QTimer *anim_t;
+    int anim_id=1;
 
     Widget *widg;// виджет сцены и итемов
     std::vector<QPushButton*> vector_btn; // вектор всех кнопок
@@ -75,7 +78,7 @@ private:
     bool is_start=0;// проверка на запуск барабана
     int naeb=6;  // значение допустимого выигрыша
     int change = 50;
-   // QThread * com_thread;
+    QThread * com_thread;
     long long int money=0; // деньги текущей игры
     long long int money_in_safe =0; // все деньги сейфа
     int X_scale =1; // сколятор
@@ -116,7 +119,9 @@ private:
     int ball_price_5 =250;
     int ball_price_6 =500;
 
-    QMovie * animation;
+    int bomb =0;
+
+    //QMovie * animation;
 
 };
 

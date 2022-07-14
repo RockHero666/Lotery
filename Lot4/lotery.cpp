@@ -18,11 +18,15 @@ Lotery::Lotery(QWidget *parent) :
     t_for_player = new QTimer();
     timer = new QTimer(); // инициализация таймера
     widg = new Widget(); // создаем сцену и итемы сцены (по факту класс- менеджер по сцене-объектам)
-    animation = new QMovie("./resurce/anim.gif");
-    ui->movie_anim->setMovie(animation);
+    anim_t = new QTimer();
 
+    //com_thread=new QThread(this);
+   // animation = new QMovie("./resurce/gif.gif");
+   // animation->moveToThread(com_thread);
+    //connect(com_thread,&QThread::started,animation,&QMovie::start,Qt::DirectConnection);
+   // com_thread->start();
 
-
+   // ui->movie_anim->setMovie(animation);
 
     arr_btn_init(vector_btn); // загрузка всех кнопок в вектор для удобства
 
@@ -34,7 +38,7 @@ Lotery::Lotery(QWidget *parent) :
     ui->graphicsView->setStyleSheet("background-color: transparent");  // прозрачность для сцены
     ui->graphicsView->setFrameStyle(QFrame::NoFrame); // убираем рамку
     ui->graphicsView->setRenderHint(QPainter::Antialiasing);  // сглаживание
-    //QApplication::setOverrideCursor(Qt::BlankCursor);
+    QApplication::setOverrideCursor(Qt::BlankCursor);
     ui->jack->setPixmap(QPixmap("./resurce/jack.png"));
     ui->money->setPixmap(QPixmap("./resurce/money.png"));
     ui->exit->setPixmap(QPixmap("./resurce/exit.png"));
@@ -127,14 +131,13 @@ Lotery::Lotery(QWidget *parent) :
 
     com = new Com(); // инициализация порта
 
-    // com_thread=new QThread(this);
 
-    // com->moveToThread(com_thread);
-    // connect(com_thread,&QThread::started,com,&Com::serialReciever,Qt::DirectConnection);
-    // com_thread->start();
 
     connect(com,&Com::cash,this,&Lotery::set_cash);
     connect(com,&Com::cash,this,&Lotery::money_add_in_safe);
+    connect(anim_t, &QTimer::timeout,  this, &Lotery::anim_slot);
+
+
 
 
 }
@@ -557,7 +560,7 @@ void Lotery::game()
     case 15:
     {
         winGame();  // подсчет выигрыша
-        restart();  // возврат параметров в дефолт
+          // возврат параметров в дефолт
         m_end->play();
         break;
     }
@@ -571,7 +574,9 @@ void Lotery::close_win_menu()
     ui->win_btn_logo->setGeometry(11111,11111,1300,750); // убрать винлого куда подальше
     ui->movie_anim->setGeometry(11111,11111,1280,1024);
     ui->win_logo->setGeometry(11111,11111,1280,1024);
-    animation->stop();
+    //animation->stop();
+     anim_t->stop();
+    restart();
 }
 
 void Lotery::restart()
@@ -594,6 +599,7 @@ void Lotery::restart()
         widg->balls[j]->once=true;
         widg->balls[j]->once2=true;
         widg->balls[j]->setZValue(0);
+        widg->balls[j]->end_menu=0;
     }
     Triangle::prior=0;
     vector_check.clear(); // очищает детектор количества кнопок
@@ -624,9 +630,14 @@ void Lotery::winGame()
         }
     }
 
+    for(int j = 0; j < vector_btn.size(); ++j)
+    {
+    widg->balls[j]->end_menu=1;
+    }
     QString path = "./resurce/win/win_btn" + QString::number(howWin) +"_"+QString::number(QRandomGenerator::global()->generate()%3+1) +".png" ;;
     ui->movie_anim->setGeometry(0,0,1280,1024);
-    animation->start();
+    //animation->start();
+    anim_t->start(41);
      ui->win_logo->setPixmap(path);
     ui->win_logo->setGeometry(0,0,1280,1024);
    // ui->win_btn_logo->setIcon(QIcon(path)); // выставляем картинку победы равную выигрышу
@@ -769,13 +780,13 @@ void Lotery::readme()
     if(!readme.exists())
         if(readme.open(QIODevice::WriteOnly))
         {
-            QString setting("p1,2,3,4,5   отвечает за паттерн поворота на N градусов картинки шара при ударе об стенку \r\n");
-            QString setting1(              "cfg_x_inc и cfg_y_inc   отвечают за скорость анимации (прокрутки шара) \r\n");
-            QString setting2(              "physi отыечает за скорость перемещения шара по экрану из расчета  X пикселей за фрейм (лотерея работает в 100FPS)  default = 100*4 = шар преодолеет 400 пикселей в секунду\r\n");
-            QString setting3(              "predel верхний предел возможного выигрыша  ( по стандарту 2    то есть больше чем 2 совпадения невозможно) ( принимает значения от 0-6   ДРУГИЕ НЕ СТАВИТЬ)\r\n");
-            QString setting4(              "Все параметры принимают  положительные и отрицательные числа, все параметры принимают рацианальные числа( 1, 0.25 , -23)\r\n");
-            QString setting5(              "Любое значение больше 1000 лучше не ставить или прога упадет или комп\r\n");
-            QString setting6(               "Если все поламалось и нечего не работает  - удалить settings.ini\r\n");
+            QString setting("Вся настройка происходит в settings.ini\r\n");
+            QString setting1(              "predel верхний предел возможного выигрыша  ( по стандарту 2    то есть больше чем 2 совпадения невозможно) ( принимает значения от 0-6   ДРУГИЕ НЕ СТАВИТЬ)\r\n");
+            QString setting2(              "change отвечает за шанс выпадения на каждый шар от 0 до 100 \r\n");
+            QString setting3(              "w2,w3,w4,w5 отвечают за то сколько надо сыграть игр для выпадения гарантированного выигрыша, цифры после w означают сколько выпадет шаров\r\n");
+            QString setting4(              "game prace  выставляет цену одной игры при x1 множителе\r\n");
+            QString setting5(              "ball_price_1 и прочие отвечают за выигрыш при совпадении шаров   цифра обозначает количество совпадений\r\n");
+            QString setting6(              "Если все поламалось и нечего не работает  - удалить settings.ini\r\n");
 
             QTextStream writeStream(&readme);
             writeStream<<setting<<setting1<<setting2<<setting3<<setting4<<setting5<<setting6;
@@ -846,6 +857,11 @@ void Lotery::playS()
         m_fon2->setPosition(166);
         queue = true;
     }
+
+   // bomb++;
+
+   // if(bomb==1800)
+       //qApp->quit();
 
 }
 
@@ -1241,4 +1257,20 @@ void Lotery::on_X_down_btn_clicked()
 
         ui->table_score->setPixmap(QPixmap("./resurce/table_score"+QString::number(X_scale)+".png"));
     }
+}
+void Lotery::anim_slot()
+{
+    if(anim_id==203)
+        anim_id =1;
+
+
+ QString path = "./resurce/an50/" + QString::number(anim_id) +".png";
+ ui->movie_anim->setPixmap(path);
+anim_id+=2;
+
+
+
+
+
+
 }

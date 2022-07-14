@@ -101,7 +101,7 @@ void Com::serialReciever()
         // для отладки
       if(once)
       {
-         emit cash(500);
+         //emit cash(500);
 
 
           once=false;

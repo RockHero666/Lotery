@@ -50,6 +50,9 @@ QRectF Triangle::boundingRect() const
 void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 
+
+    if(!end_menu)
+    {
    temp++;
    if((temp+(ball_id*2))%2==0)
         recalculateResult();
@@ -60,6 +63,7 @@ void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
       //  painter->drawImage(QRectF(-35,-35,70,70),*mask_of_shadow_Image);
 
 
+    }
 
 
 
@@ -77,6 +81,8 @@ void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 void Triangle::slotPhysTimer()
 {
 
+    if(!end_menu)
+    {
     if(win_move)
       {
           if(once)
@@ -226,6 +232,7 @@ void Triangle::slotPhysTimer()
       y_mem = this->y();//
 
       }
+    }
 
   }
 

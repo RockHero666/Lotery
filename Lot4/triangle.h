@@ -64,6 +64,7 @@ private:
      int Y_dist=0;
      int  X_t_per_f=0;
     int  Y_t_per_f=0;
+    bool end_menu=0;
 
 
  void loadImage(const QString &fileName, QImage *image);
